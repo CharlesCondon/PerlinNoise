@@ -9,6 +9,9 @@ let strokeSlider;
 var stars = [];
 var starSpeed;
 let rToggle = 1;
+let r;
+let g;
+let b;
 
 function preload() {
     song = loadSound("daftPunk.mp3");
@@ -40,7 +43,8 @@ function setup() {
     btn.addEventListener('click', toggleSong);
     let settings = document.getElementById("controlsCont");
     settings.addEventListener('click', toggleSettings);
-
+    let disco = document.getElementById("disco");
+    
     amp = new p5.Amplitude();
     fft = new p5.FFT();
     spaceSlider = createSlider(.5, 15, .1, .1);
@@ -60,23 +64,25 @@ function setup() {
 
 // draw using Perlin Noise
 function draw() {
-    // let r = Math.floor(Math.random()*75)
-    // let g = Math.floor(Math.random()*255)
-    // let b = Math.floor(Math.random()*255)
-    // let opac =  (Math.floor(Math.random() * 10) + 5) / 10;
+    if (disco.checked) {
+        r = Math.floor(Math.random()*255)+100
+        g = Math.floor(Math.random()*255)+100
+        b = Math.floor(Math.random()*255)+100
+    }
+    else {
+        r = 255;
+        g = 255;
+        b = 255;
+    }
     let vol = amp.getLevel();
     let fre = fft.analyze();
     let centroid = fft.getCentroid();
-    // console.log(centroid)
     background(0);
     translate(width / 2, height / 2);
-    stroke(255);
-
+    stroke(r, g, b);
     let w = strokeSlider.value();
-    
     beginShape(POINTS);
     strokeWeight(w);
-    // let noiseMax = noiseSlider.value();
     let spacing = spaceSlider.value();
     let circleNum = numSlider.value();
     let qNum = qSlider.value();
