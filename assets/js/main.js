@@ -36,7 +36,10 @@ function toggleMusic() {
     music.classList.toggle("hide");
 }
 function changeSong() {
-    toggleSong();
+    if (song.isPlaying()) {
+        song.pause();
+        document.getElementById("playImg").src = "assets/images/playBtn.png";
+    }
     song = loadSound(`${this.id}.mp3`);
 }
 
