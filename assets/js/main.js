@@ -87,16 +87,28 @@ function draw() {
     let circleNum = numSlider.value();
     let qNum = qSlider.value();
     let q = 500;
-    for (let i = 0; i < circleNum; i++) {
-        for (let a = 0; a < TWO_PI; a += radians(spacing/2)) {
-            let xoff = map(cos(a + phase), -1, 1, 0, (centroid/q));
-            let yoff = map(sin(a + phase), -1, 1, 0, (centroid/q));
-            let r = map(noise(xoff, yoff, zoff), 0, 1, 100, height / 2);
-            let x = (r * rToggle) * cos(a);
-            let y = (r * rToggle) * sin(a);
-            vertex(x, y);
+
+    for (let a = 0; a < TWO_PI; a += radians(spacing/2)) {
+        let xoff = map(cos(a + phase), -1, 1, 0, (centroid/q));
+        let yoff = map(sin(a + phase), -1, 1, 0, (centroid/q));
+        let r = map(noise(xoff, yoff, zoff), 0, 1, 100, height / 2);
+        let x = (r * rToggle) * cos(a);
+        let y = (r * rToggle) * sin(a);
+        vertex(x, y);
+    }
+
+    if(circleNum>1) {
+        for (let k=1; k<circleNum; k++) {
+            for (let a = 0; a < TWO_PI; a += radians(spacing/2)) {
+                let xoff = map(cos(a + phase), -1, 1, 0, (centroid/q));
+                let yoff = map(sin(a + phase), -1, 1, 0, (centroid/q));
+                let r = map(noise(xoff, yoff, zoff), 0, 1, 100, height / 2);
+                let x = (r * rToggle) * cos(a);
+                let y = (r * rToggle) * sin(a);
+                vertex(x, y);
+            }
+            q=q*qNum;
         }
-        q = q*qNum;
     }
     endShape(CLOSE);
     starSpeed = map(centroid/20, 0, width, 0, 50);
