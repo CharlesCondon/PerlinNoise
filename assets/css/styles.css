@@ -164,6 +164,19 @@ main {
     }
     #playImg {
         width: 50px;
+        height: 50px;
+    }
+    #musicBtn {
+        left: calc(var(--pad)*10);
+        top: calc(var(--pad)*3);
+    }
+    #musicImg {
+        width: 50px;
+        height: 50px;
+    }
+    #musicChoice {
+        left: calc(var(--pad)*3);
+        top: calc(var(--pad)*10);
     }
     #controlsCont {
         right: calc(var(--pad)*3);
