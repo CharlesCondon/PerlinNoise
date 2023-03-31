@@ -1,0 +1,127 @@
+:root {
+    --pad: max(10px, 2vmin);
+    --c-bg: hsl(0, 0%, 5%);
+    --animate-duration: .5s;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#visualFlair {
+    position: fixed;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+    overflow: hidden;
+    display: flex;
+    border-radius: 10px;
+    border: 6px double white;
+    z-index: 2;
+    box-shadow: 0px 0px 15px #6b6b6b;
+    /* box-shadow: -1px -1px 15px rgb(69, 69, 69),
+                3px 3px 15px rgb(34, 34, 34); */
+}
+
+#visuals {
+    z-index: 1;
+}
+
+#controlsCont {
+    position: fixed;
+    right: calc(var(--pad)*2);
+    top: calc(var(--pad)*2);
+    z-index: 5;
+    border-radius: 100%;
+}
+#settings:hover {
+    filter: invert(50%);
+}
+#settings:active {
+    filter: invert(75%);
+}
+#settings {
+    filter: invert(100%);
+    width: 40px;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: calc(var(--pad)*2);
+    top: calc(var(--pad)*6);
+    background-color: rgba(255,255,255,.25);
+    border-radius: 10px;
+    z-index: 5;
+}
+.hide {
+    visibility: hidden;
+}
+#controls div {
+    background-color: rgba(255,255,255,.25);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+#controls div h1 {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+#playBtn {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: calc(var(--pad)*2);
+    top: calc(var(--pad)*2);
+    z-index: 5;
+    border-radius: 100%;
+}
+#playBtn:hover {
+    filter: invert(50%);
+}
+#playBtn:active {
+    filter: invert(75%);
+}
+#playImg {
+    filter: invert(100%);
+    width: 40px;
+}
+
+@media (max-width: 600px) {
+    #playBtn {
+        left: calc(var(--pad)*3);
+        top: calc(var(--pad)*3);
+    }
+    #playImg {
+        width: 50px;
+    }
+    #controlsCont {
+        right: calc(var(--pad)*3);
+        top: calc(var(--pad)*3);
+    }
+    #settings {
+        width: 50px;
+    }
+    #controls {
+        right: calc(var(--pad)*3);
+        top: calc(var(--pad)*9);
+    }
+}
