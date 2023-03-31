@@ -30,6 +30,15 @@ function toggleSettings() {
     controls.classList.toggle("animate__fadeInRight");
     controls.classList.toggle("hide");
 }
+function toggleMusic() {
+    let music = document.getElementById("musicChoice");
+    music.classList.toggle("animate__fadeInLeft");
+    music.classList.toggle("hide");
+}
+function changeSong() {
+    toggleSong();
+    song = loadSound(`${this.id}.mp3`);
+}
 
 // Perlin Noise Setup
 function setup() {
@@ -40,9 +49,23 @@ function setup() {
     }
     let btn = document.getElementById("playBtn");
     btn.addEventListener('click', toggleSong);
+
     let settings = document.getElementById("controlsCont");
     settings.addEventListener('click', toggleSettings);
+
+    let musicCont = document.getElementById("musicBtn");
+    musicCont.addEventListener('click', toggleMusic);
+
     let disco = document.getElementById("disco");
+
+    let daft = document.getElementById("daftPunk");
+    let kiss = document.getElementById("kiss");
+    let alice = document.getElementById("river");
+    let solitude = document.getElementById("mientras");
+    daft.addEventListener('click', changeSong);
+    kiss.addEventListener('click', changeSong);
+    alice.addEventListener('click', changeSong);
+    solitude.addEventListener('click', changeSong);
     
     amp = new p5.Amplitude();
     fft = new p5.FFT();

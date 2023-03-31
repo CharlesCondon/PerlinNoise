@@ -96,7 +96,7 @@ main {
 
 #playBtn {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: fixed;
     left: calc(var(--pad)*2);
     top: calc(var(--pad)*2);
@@ -112,6 +112,49 @@ main {
 #playImg {
     filter: invert(100%);
     width: 40px;
+    height: 40px;
+}
+
+#musicBtn {
+    position: fixed;
+    left: calc(var(--pad)*6);
+    top: calc(var(--pad)*2);
+    z-index: 5;
+    border-radius: 100%;
+}
+#musicImg {
+    filter: invert(100%);
+    width: 40px;
+    height: 40px;
+}
+#musicBtn:hover {
+    filter: invert(50%);
+}
+#musicBtn:active {
+    filter: invert(75%);
+}
+
+#musicChoice {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: calc(var(--pad)*2);
+    top: calc(var(--pad)*6);
+    background-color: rgba(255,255,255,.25);
+    border-radius: 10px;
+    z-index: 5;
+}
+#musicChoice button {
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,.35);
+    margin: 7px;
+    padding: 5px;
+    font-size: 16px;
+}
+#musicChoice button:hover {
+    background-color: rgba(255,255,255,.25);
 }
 
 @media (max-width: 600px) {
