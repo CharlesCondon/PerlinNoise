@@ -30,6 +30,11 @@ function toggleSettings() {
     controls.classList.toggle("animate__fadeInRight");
     controls.classList.toggle("hide");
 }
+function toggleInfo() {
+    let info = document.getElementById("infoBlob");
+    info.classList.toggle("animate__fadeIn");
+    info.classList.toggle("hide");
+}
 function toggleMusic() {
     let music = document.getElementById("musicChoice");
     music.classList.toggle("animate__fadeInLeft");
@@ -58,6 +63,9 @@ function setup() {
 
     let musicCont = document.getElementById("musicBtn");
     musicCont.addEventListener('click', toggleMusic);
+
+    let infoCont = document.getElementById("infoCont");
+    infoCont.addEventListener('click', toggleInfo);
 
     let disco = document.getElementById("disco");
 

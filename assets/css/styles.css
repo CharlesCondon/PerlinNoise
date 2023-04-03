@@ -157,6 +157,72 @@ main {
     background-color: rgba(255,255,255,.25);
 }
 
+#infoCont {
+    position: fixed;
+    right: calc(var(--pad)*6);
+    top: calc(var(--pad)*2);
+    z-index: 5;
+    border-radius: 100%;
+}
+#info {
+    filter: invert(100%);
+    width: 40px;
+    height: 40px;
+}
+#info:hover {
+    filter: invert(50%);
+}
+#info:active {
+    filter: invert(75%);
+}
+
+#infoBlob {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(90, 90, 90);
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 15px;
+    border: 7px double black;
+    border-radius: 20px;
+}
+#infoBlob h1 {
+    text-align: center;
+}
+hr {
+    width: 100%;
+}
+h2 {
+    margin-bottom: 5px;
+}
+ul, p {
+    margin:0;
+    font-size: 17px;
+}
+
+@media (max-width: 801px) {
+    #infoBlob {
+        width: 75%;
+    }
+    #infoBlob h1 {
+        font-size: 25px;
+    }
+    hr {
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    ul, p {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 600px) {
     #playBtn {
         left: calc(var(--pad)*3);
@@ -188,5 +254,31 @@ main {
     #controls {
         right: calc(var(--pad)*3);
         top: calc(var(--pad)*9);
+    }
+    #infoCont {
+        right: calc(var(--pad)*10);
+        top: calc(var(--pad)*3);
+    }
+    #info {
+        width: 50px;
+        height: 50px;
+    }
+    .mobileAbout {
+        display: none;
+    }
+}
+@media (max-width: 400px) {
+    #infoBlob h1 {
+        font-size: 18px;
+    }
+    hr {
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    ul, p {
+        font-size: 12px;
     }
 }
