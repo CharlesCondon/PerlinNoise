@@ -73,10 +73,12 @@ function setup() {
     let kiss = document.getElementById("kiss");
     let alice = document.getElementById("river");
     let solitude = document.getElementById("mientras");
+    let death = document.getElementById("getGot");
     daft.addEventListener('click', changeSong);
     kiss.addEventListener('click', changeSong);
     alice.addEventListener('click', changeSong);
     solitude.addEventListener('click', changeSong);
+    death.addEventListener('click', changeSong);
     
     amp = new p5.Amplitude();
     fft = new p5.FFT();
